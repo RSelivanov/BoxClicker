@@ -73,7 +73,7 @@ public class BoxView : BoxClickerElement
         {
             float xRange = Random.Range(-0.2f, 0.2f);
             float yRange = Random.Range(0.3f, 0.6f);
-            GameObject CoinPrefab = Resources.Load("Prefabs/Bit4/Coin") as GameObject;
+            GameObject CoinPrefab = Resources.Load("Prefabs/Coin") as GameObject;
             GameObject CoinInstantiate = Instantiate(CoinPrefab, transform.position, transform.rotation) as GameObject;
             CoinInstantiate.GetComponent<Rigidbody2D>().AddForce(new Vector2(xRange, yRange) * force);
         }
