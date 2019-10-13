@@ -23,7 +23,7 @@ public class PointView : BoxClickerElement
             {
                 if (point.childCount == 0)
                 {
-                    GameObject gunPrefab = Resources.Load("Prefabs/Bit4/" + pointList[point.name].spriteName) as GameObject;
+                    GameObject gunPrefab = Resources.Load("Prefabs/" + pointList[point.name].spriteName) as GameObject;
                     GameObject gunInstantiate = Instantiate(gunPrefab, point.transform.position, point.transform.rotation) as GameObject;
                     gunInstantiate.transform.SetParent(point.transform);
                     gunInstantiate.transform.localPosition = gunPrefab.transform.position;

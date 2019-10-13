@@ -18,7 +18,6 @@ public class AdvertisementView : BoxClickerElement
 
     IEnumerator ShowBannerWhenReady()
     {
-        print("ShowBannerWhenReady");
         string placementBannerId = app.model.advertisementModel.GetPlacementBannerId();
 
         while (!Advertisement.IsReady(placementBannerId))

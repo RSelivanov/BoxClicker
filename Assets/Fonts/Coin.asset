@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d7840ac2a523da54fafbf3c8572eba86, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7247243e6bebd0c42a42a33001a7af7e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -50,7 +50,7 @@ MonoBehaviour:
   material: {fileID: -199457104053830539}
   materialHashCode: 0
   m_Version: 1.1.0
-  spriteSheet: {fileID: 2800000, guid: d7840ac2a523da54fafbf3c8572eba86, type: 3}
+  spriteSheet: {fileID: 2800000, guid: 7247243e6bebd0c42a42a33001a7af7e, type: 3}
   m_SpriteCharacterTable:
   - m_ElementType: 2
     m_Unicode: 0
@@ -61,16 +61,16 @@ MonoBehaviour:
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
-      m_Width: 55
-      m_Height: 57
-      m_HorizontalBearingX: -10
-      m_HorizontalBearingY: 50
+      m_Width: 66
+      m_Height: 66
+      m_HorizontalBearingX: -30
+      m_HorizontalBearingY: 55
       m_HorizontalAdvance: 55
     m_GlyphRect:
       m_X: 0
       m_Y: 0
-      m_Width: 55
-      m_Height: 57
+      m_Width: 66
+      m_Height: 66
     m_Scale: 1
     m_AtlasIndex: 0
     sprite: {fileID: 21300000, guid: d7840ac2a523da54fafbf3c8572eba86, type: 3}

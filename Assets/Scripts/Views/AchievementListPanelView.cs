@@ -34,7 +34,7 @@ public class AchievementListPanelView : BoxClickerElement
         {
             //string[] cellNamesArray = { "SkillCell_01", "SkillCell_01" };
 
-            GameObject achievementCellPrefab = Resources.Load("Prefabs/Bit4/AchievementCell_01") as GameObject;
+            GameObject achievementCellPrefab = Resources.Load("Prefabs/AchievementCell") as GameObject;
             GameObject achievementCellInstantiate = Instantiate(achievementCellPrefab, content.transform.position, content.transform.rotation) as GameObject;
 
             achievementCellInstantiate.name = achievement.id.ToString();

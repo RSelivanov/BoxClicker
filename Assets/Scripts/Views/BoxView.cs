@@ -34,7 +34,7 @@ public class BoxView : BoxClickerElement
     {
         GameObject boxContainer = app.model.boxModel.GetBoxContainer();
         if (boxContainer.transform.childCount > 0) return;
-        GameObject boxPrefab = Resources.Load("Prefabs/Bit4/Box_01") as GameObject;
+        GameObject boxPrefab = Resources.Load("Prefabs/Box_01") as GameObject;
         Vector3 newPosition = new Vector3(boxContainer.transform.position.x, boxContainer.transform.position.y + 6, boxContainer.transform.position.z);
         GameObject boxInstantiate = Instantiate(boxPrefab, newPosition, boxContainer.transform.rotation) as GameObject;
         boxInstantiate.name = "Box";
@@ -46,7 +46,7 @@ public class BoxView : BoxClickerElement
         SoundManager.use.PlaySound("BreakPaper_02", 0.25f);
 
         GameObject boxContainer = app.model.boxModel.GetBoxContainer();
-        GameObject boxPartsPrefab = Resources.Load("Prefabs/Bit4/Box_01_DestructibleV2") as GameObject;
+        GameObject boxPartsPrefab = Resources.Load("Prefabs/Box_01_DestructibleV2") as GameObject;
         GameObject boxPartsInstantiate = Instantiate(boxPartsPrefab, boxContainer.transform.position, boxContainer.transform.rotation) as GameObject;
 
         float force = Random.Range(100.0f, 200.0f);
@@ -81,7 +81,7 @@ public class BoxView : BoxClickerElement
 
     public void DrawText(int amount)
     {
-        GameObject TextPrefab = Resources.Load("Prefabs/Bit1/Text") as GameObject;
+        GameObject TextPrefab = Resources.Load("Prefabs/Text") as GameObject;
         GameObject TextInstantiate = Instantiate(TextPrefab) as GameObject;
         TextInstantiate.GetComponent<TextMeshPro>().SetText("+" + amount.ToString());
         TextInstantiate.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-0.3f, 0.3f), 1) * thrust);

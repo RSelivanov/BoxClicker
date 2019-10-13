@@ -28,7 +28,7 @@ public class SkillListPanelView : BoxClickerElement
         {
             //string[] cellNamesArray = { "SkillCell_01", "SkillCell_01" };
 
-            GameObject skillCellPrefab = Resources.Load("Prefabs/Bit4/SkillCell_01") as GameObject;
+            GameObject skillCellPrefab = Resources.Load("Prefabs/SkillCell") as GameObject;
             GameObject skillCellInstantiate = Instantiate(skillCellPrefab, content.transform.position, content.transform.rotation) as GameObject;
 
             skillCellInstantiate.name = skill.id.ToString();

@@ -37,7 +37,7 @@ public class NotificationManager : BoxClickerElement
         if (notificationContainer.transform.childCount > 0) Destroy(notificationContainer.transform.GetChild(0).transform.gameObject);
         StopCoroutine(destroNotificationCoolDown);
 
-        GameObject notificationPrefab = Resources.Load("Prefabs/Bit4/Notification2") as GameObject;
+        GameObject notificationPrefab = Resources.Load("Prefabs/Bit4/Notification") as GameObject;
         GameObject notificationInstantiate = Instantiate(notificationPrefab, new Vector3(0f, 0f, 0f), transform.rotation) as GameObject;
 
         notificationInstantiate.transform.GetChild(0).GetComponent<Text>().text = mesages[key];
@@ -56,7 +56,7 @@ public class NotificationManager : BoxClickerElement
         if (notificationContainer.transform.childCount > 0) Destroy(notificationContainer.transform.GetChild(0).transform.gameObject);
         StopCoroutine(destroNotificationCoolDown);
 
-        GameObject notificationPrefab = Resources.Load("Prefabs/Bit4/AchievementCell_01") as GameObject;
+        GameObject notificationPrefab = Resources.Load("Prefabs/Bit4/AchievementCell") as GameObject;
         GameObject notificationInstantiate = Instantiate(notificationPrefab, new Vector3(0f, 0f, 0f), transform.rotation) as GameObject;
 
         AchievementData currentAchievement = app.model.achievementModel.GetAchievementDataById(id);

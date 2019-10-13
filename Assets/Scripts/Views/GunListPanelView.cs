@@ -28,7 +28,7 @@ public class GunListPanelView : BoxClickerElement
         {
             //string[] cellNamesArray = { "GunCell_01", "GunCell_02" };
 
-            GameObject gunCellPrefab = Resources.Load("Prefabs/Bit4/GunCell_01") as GameObject;
+            GameObject gunCellPrefab = Resources.Load("Prefabs/GunCell") as GameObject;
             GameObject gunCellInstantiate = Instantiate(gunCellPrefab, content.transform.position, content.transform.rotation) as GameObject;
 
             gunCellInstantiate.name = gun.id.ToString();
