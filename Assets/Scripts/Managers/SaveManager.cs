@@ -196,4 +196,63 @@ public class SaveManager : BoxClickerElement
         PlayerPrefs.DeleteKey("sound");
     }
 
+
+    public void SaveTime(int time)
+    {
+        PlayerPrefs.SetInt("time", time);
+    }
+
+    public int? LoadTime()
+    {
+        if (PlayerPrefs.HasKey("time"))
+        {
+            return PlayerPrefs.GetInt("time");
+        }
+        return null;
+    }
+
+    public void RemoveTime()
+    {
+        PlayerPrefs.DeleteKey("time");
+    }
+    
+    public void SaveLanguages()
+    {
+        string path = Application.persistentDataPath + "/languagesdata.bc";
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        Dictionary<string, bool> languagesList = app.model.languageModel.GetLanguagesList();
+
+        formatter.Serialize(stream, languagesList);
+        stream.Close();
+    }
+
+    public Dictionary<string, bool> LoadLanguages()
+    {
+        string path = Application.persistentDataPath + "/languagesdata.bc";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            Dictionary<string, bool> languagesList = formatter.Deserialize(stream) as Dictionary<string, bool>;
+            stream.Close();
+
+            return languagesList;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void RemoveLanguages()
+    {
+        string path = Application.persistentDataPath + "/languagesdata.bc";
+        File.Delete(path);
+    }
+    
 }

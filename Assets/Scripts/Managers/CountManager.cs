@@ -14,9 +14,11 @@ public class CountManager : MonoBehaviour
 
     //---------------------------------
 
-    public int PercentageOfNumber(int persent, int number)
+    public double PercentageOfNumber(int persent, long number)
     {
-        return Convert.ToInt32(number * persent / 100);
+        double result = ((double)number * persent) / 100;
+
+        return result;
     }
 
     public int HalfNumber(int number)
@@ -24,8 +26,13 @@ public class CountManager : MonoBehaviour
         return Convert.ToInt32(number / 2);
     }
 
-    public int IncrementalOfNumber(int number, int pow)
+    public long IncrementalOfNumber(long number, int pow)
     {
-        return Convert.ToInt32(number * Math.Pow(1.07f, pow));
+        return Convert.ToInt64(number * Math.Pow(1.07f, pow));
+    }
+
+    public int getCurrentTime()
+    {
+        return (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
     }
 }

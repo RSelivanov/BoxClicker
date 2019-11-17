@@ -18,4 +18,5 @@ public class BoxClickerView : BoxClickerElement
     public AchievementListPanelView achievementListPanelView;
     public SceneView sceneView;
     public AdvertisementView advertisementView;
+    public LanguageView languageView;
 }

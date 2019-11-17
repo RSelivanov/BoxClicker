@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     //---------------------------------
 
-    private long coins;
+    [SerializeField] private long coins;
     [SerializeField] private TextMeshProUGUI coinsText;
     private string coinSprite = "<sprite index=0>";
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         coins += c;
 
-        SaveManager.use.SaveCoins(this.coins);
+       // SaveManager.use.SaveCoins(this.coins);
     }
 
     public void RemoveCoins(long c)

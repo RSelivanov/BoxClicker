@@ -21,15 +21,10 @@ public class SkillModel : BoxClickerElement
         else
         {
             // [id] [name] [color] [price] [damage]   
-            skillList.Add(new SkillData(0, "Double Bust (X2)", "Ad", 1, 0));
-            skillList.Add(new SkillData(1, "Click", "Increases the effect of clicking twice", 500, 0));
-            skillList.Add(new SkillData(2, "Upgrade Box", "Improve the box", 500, 0));
-            skillList.Add(new SkillData(3, "Extra Coins", "Gives extra coins after destroying the box", 2500, 0));
-            skillList.Add(new SkillData(4, "Сritical damage", "Increases chance of critical damage", 5000, 0));
-            skillList.Add(new SkillData(5, "Element 1", "Discription", 500, 0));
-            skillList.Add(new SkillData(6, "Element 2", "Discription", 500, 0));
-            skillList.Add(new SkillData(7, "Element 3", "Discription", 500, 0));
-            skillList.Add(new SkillData(8, "Element 4", "Discription", 500, 0));
+            skillList.Add(new SkillData(0, "Click", "Increases clicking effect", 500, 0));
+            skillList.Add(new SkillData(1, "Box", "Improve the box", 1000, 0));
+            skillList.Add(new SkillData(2, "Extra Coins", "Gives extra coins", 300, 0));
+            skillList.Add(new SkillData(3, "Сritical damage", "Increases chance of critical damage", 100, 0));
         }
     }
 
@@ -39,7 +34,8 @@ public class SkillModel : BoxClickerElement
 
     public void UpdateSkill(int id)
     {
-        this.skillList[id].price = this.skillList[id].price * 2;
+        this.skillList[id].price = this.skillList[id].price * 5;
         this.skillList[id].level ++;
+        //this.skillList[id].price = CountManager.use.IncrementalOfNumber(this.skillList[id].price, this.skillList[id].level);
     }
 }

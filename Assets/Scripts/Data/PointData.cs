@@ -9,18 +9,18 @@ public class PointData
     public int id;
     public string name;
     public string spriteName;
-    public int price;
-    public float damage;
+    public long price;
+    public double damage;
     public float coolDown;
     public int level;
-    public int upgradePrice;
-    public float upgradeDamage;
+    public long upgradePrice;
+    public double upgradeDamage;
     public float upgradeCoolDown;
     public int pow;
     public float percentDamage;
     public float percentCoolDown;
 
-    public PointData(int id, string name, string spriteName, int price, float damage, float coolDown, int level, int upgradePrice, float upgradeDamage, float upgradeCoolDown, int pow, float percentDamage, float percentCoolDown)
+    public PointData(int id, string name, string spriteName, long price, double damage, float coolDown, int level, long upgradePrice, double upgradeDamage, float upgradeCoolDown, int pow, float percentDamage, float percentCoolDown)
     {
         this.id = id;
         this.name = name;

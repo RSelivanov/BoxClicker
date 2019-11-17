@@ -368,7 +368,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2a252c9e321101e48a8cb9db8e10cb46, type: 3}
-    m_FontSize: 35
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 8701100676421060495}
   - component: {fileID: 8977740895684083047}
   m_Layer: 5
-  m_Name: AchievementCell_01
+  m_Name: AchievementCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

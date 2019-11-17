@@ -13,7 +13,19 @@ public class BoxView : BoxClickerElement
     public void ClickListener(GameObject box)
     {
         //SoundManager.use.Play("Click_02", 1.0f);
-        SoundManager.use.PlaySound("Click_02", 1.0f);
+
+        BoxData boxData = app.model.boxModel.GetBox();
+        SoundManager.use.PlaySound("Click" + boxData.spriteName);
+        
+        app.controller.achievementController.AddLevel(3, 1); // 10 clicks
+        app.controller.achievementController.AddLevel(7, 1); // 50 clicks
+        app.controller.achievementController.AddLevel(11, 1); // 100 clicks
+        app.controller.achievementController.AddLevel(15, 1); // 1000 clicks
+        app.controller.achievementController.AddLevel(19, 1); // 10 000 clicks
+        app.controller.achievementController.AddLevel(23, 1); // 100 000 clicks
+        app.controller.achievementController.AddLevel(27, 1); // 1 000 000 clicks
+        app.controller.achievementController.AddLevel(31, 1); // 10 000 000 clicks
+        app.controller.achievementController.AddLevel(35, 1); // 100 000 000 clicks
 
         app.controller.boxController.Click(clickDamage);
     }
@@ -23,18 +35,32 @@ public class BoxView : BoxClickerElement
         this.clickDamage = app.model.clickModel.GetClickDamage();
     }
 
-        public void UpdateBoxView(BoxData box)
+    public void UpdateBoxView(BoxData box)
     {
         GameObject boxContainer = app.model.boxModel.GetBoxContainer();
         if (boxContainer.transform.childCount == 0) return;
         //boxContainerObj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = box.color;
+
+        Vector3 currentPossition = boxContainer.transform.position;
+
+        BoxData boxData = app.model.boxModel.GetBox();
+
+        Destroy(boxContainer.transform.GetChild(0).transform.gameObject);
+
+        GameObject boxPrefab = Resources.Load("Prefabs/" + boxData.spriteName) as GameObject;
+        GameObject boxInstantiate = Instantiate(boxPrefab, currentPossition, boxContainer.transform.rotation) as GameObject;
+        boxInstantiate.name = "Box";
+        boxInstantiate.transform.SetParent(boxContainer.transform);
+
     }
 
     public void InstantiateBox()
     {
         GameObject boxContainer = app.model.boxModel.GetBoxContainer();
+        BoxData boxData = app.model.boxModel.GetBox();
+
         if (boxContainer.transform.childCount > 0) return;
-        GameObject boxPrefab = Resources.Load("Prefabs/Box_01") as GameObject;
+        GameObject boxPrefab = Resources.Load("Prefabs/" + boxData.spriteName) as GameObject;
         Vector3 newPosition = new Vector3(boxContainer.transform.position.x, boxContainer.transform.position.y + 6, boxContainer.transform.position.z);
         GameObject boxInstantiate = Instantiate(boxPrefab, newPosition, boxContainer.transform.rotation) as GameObject;
         boxInstantiate.name = "Box";
@@ -43,10 +69,12 @@ public class BoxView : BoxClickerElement
 
     public void InstantiateBoxParts()
     {
-        SoundManager.use.PlaySound("BreakPaper_02", 0.25f);
-
         GameObject boxContainer = app.model.boxModel.GetBoxContainer();
-        GameObject boxPartsPrefab = Resources.Load("Prefabs/Box_01_DestructibleV2") as GameObject;
+
+        BoxData boxData = app.model.boxModel.GetBox();
+        SoundManager.use.PlaySound("Break" + boxData.spriteName);
+
+        GameObject boxPartsPrefab = Resources.Load("Prefabs/"+ boxData.spriteName + "_Destructible") as GameObject;
         GameObject boxPartsInstantiate = Instantiate(boxPartsPrefab, boxContainer.transform.position, boxContainer.transform.rotation) as GameObject;
 
         float force = Random.Range(100.0f, 200.0f);
@@ -65,7 +93,7 @@ public class BoxView : BoxClickerElement
         Destroy(boxContainer.transform.GetChild(0).transform.gameObject);
     }
 
-    public void DrawCois(int amount)
+    public void DrawCois(long amount)
     {
         float force = Random.Range(550.0f, 600.0f);
 
@@ -79,7 +107,7 @@ public class BoxView : BoxClickerElement
         }
     }
 
-    public void DrawText(int amount)
+    public void DrawText(long amount)
     {
         GameObject TextPrefab = Resources.Load("Prefabs/Text") as GameObject;
         GameObject TextInstantiate = Instantiate(TextPrefab) as GameObject;

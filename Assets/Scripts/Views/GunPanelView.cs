@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,6 @@ public class GunPanelView : BoxClickerElement
 
     //Tech
     private string levelPrefix = "Level ";
-    private string pricePostfix = " coins";
 
     void Start()
     {
@@ -44,14 +44,14 @@ public class GunPanelView : BoxClickerElement
         titleText.text = point.name;
         levelText.text = levelPrefix + point.level;
 
-        damageNumberText.text = point.damage.ToString();
-        coolDownNumberText.text = point.coolDown.ToString();
+        damageNumberText.text = Math.Round(Convert.ToDecimal(point.damage), 2).ToString();
+        coolDownNumberText.text = Math.Round(Convert.ToDecimal(point.coolDown), 2).ToString();
 
-        damageNumberUpgradeText.text = point.upgradeDamage.ToString();
-        coolDownNumberUpgradeText.text = point.upgradeCoolDown.ToString();
+        damageNumberUpgradeText.text = Math.Round(Convert.ToDecimal(point.upgradeDamage), 2).ToString();
+        coolDownNumberUpgradeText.text = Math.Round(Convert.ToDecimal(point.upgradeCoolDown), 2).ToString();
 
-        priceSellText.text = (point.price / 2) + pricePostfix;
-        priceUpgradeText.text = point.upgradePrice + pricePostfix;
+        priceSellText.text = (point.price / 2).ToString();
+        priceUpgradeText.text = point.upgradePrice.ToString();
         UiManager.use.ShowGunPanel();
     }
 

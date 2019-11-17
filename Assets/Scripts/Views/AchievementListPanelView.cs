@@ -42,7 +42,7 @@ public class AchievementListPanelView : BoxClickerElement
             achievementCellInstantiate.transform.GetChild(0).GetComponent<Text>().text = achievement.title; // Description
             achievementCellInstantiate.transform.GetChild(1).GetComponent<Text>().text = achievement.coins.ToString(); // Coins          
 
-            if (achievement.isOpen)
+            if (achievement.open)
             {
                 achievementCellInstantiate.transform.GetChild(3).GetComponent<Image>().color = new Color(1,1,1,1);
                 achievementCellInstantiate.GetComponent<Image>().sprite = activeCell;
@@ -69,7 +69,7 @@ public class AchievementListPanelView : BoxClickerElement
 
         for (int i = 0; i < content.transform.childCount; i++)
         {
-            if (achievementList[i].isOpen)
+            if (achievementList[i].open)
             {
                 content.transform.GetChild(i).transform.GetChild(3).GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
@@ -87,7 +87,7 @@ public class AchievementListPanelView : BoxClickerElement
 
         for (int i = 0; i < achievementList.Count; i++)
         {
-            if (achievementList[i].isOpen)
+            if (achievementList[i].open)
             {
                 content.transform.GetChild(i).GetComponent<Image>().sprite = activeCell;
                 content.transform.GetChild(i).transform.GetChild(4).GetComponent<Image>().sprite = activeCoin;

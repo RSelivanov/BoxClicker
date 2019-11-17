@@ -12,4 +12,7 @@ public class BoxClickerModel : BoxClickerElement
     public ClickModel clickModel;
     public AchievementModel achievementModel;
     public AdvertisementModel advertisementModel;
+    public LanguageModel languageModel;
+    public ExtraCoinsModel extraCoinsModel;
+    public CriticalDamageModel criticalDamageModel;
 }

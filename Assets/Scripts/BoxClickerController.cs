@@ -13,5 +13,6 @@ public class BoxClickerController : BoxClickerElement
     public CoinController coinController;
     public SceneController sceneController;
     public AdvertisementController advertisementController;
+    public LanguageController languageController;
 }
 

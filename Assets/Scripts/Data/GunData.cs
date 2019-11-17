@@ -8,11 +8,11 @@ public class GunData
     public int id;
     public string name;
     public string spriteName;
-    public int price;
-    public float damage;
+    public long price;
+    public double damage;
     public float coolDown;
 
-    public GunData(int id, string name, string spriteName, int price, float damage, float coolDown)
+    public GunData(int id, string name, string spriteName, long price, double damage, float coolDown)
     {
         this.id = id;
         this.name = name;

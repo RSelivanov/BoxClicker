@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +12,12 @@ public class BoxHealthBarView : BoxClickerElement
 
     public void ResetHealth()
     {
-        healthBar.maxValue = app.model.boxModel.GetDefaultHealth();
-        healthBar.value = app.model.boxModel.GetDefaultHealth();
+        healthBar.maxValue = (float)app.model.boxModel.GetDefaultHealth();
+        healthBar.value = (float)app.model.boxModel.GetDefaultHealth();
     }
 
     public void UpdateHealthView()
     {
-        healthBar.value = app.model.boxModel.GetHealth();
+        healthBar.value = (float)app.model.boxModel.GetHealth();
     }
 }

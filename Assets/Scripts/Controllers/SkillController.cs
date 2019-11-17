@@ -19,6 +19,9 @@ public class SkillController : BoxClickerElement
             switch (i)
             {
                 case 0:
+
+                    // Click
+
                     int currenClickDamage;
                     for (int n = 0; n < skillList[i].level; n++)
                     {
@@ -28,7 +31,9 @@ public class SkillController : BoxClickerElement
                     app.view.boxView.UpdateClickDamage();
                     break;
                 case 1:
-                    // Upgrade Box
+
+                    // Box
+                    if (!app.model.boxModel.IsUpgradable(1)) return;
                     app.model.boxModel.UpgradeBox(skillList[i].level);
 
                     // Reset Box
@@ -41,6 +46,16 @@ public class SkillController : BoxClickerElement
                     // Reset Health Bar
                     app.view.boxHealthBarView.ResetHealth();
 
+                    break;
+                case 2:
+
+                    // Extra Coins
+                    app.model.extraCoinsModel.AddLevel(skillList[i].level);
+                    break;
+                case 3:
+
+                    // Сritical damage
+                    app.model.criticalDamageModel.AddLevel(skillList[i].level);
                     break;
                 default:
                     //print("Default");
@@ -56,13 +71,14 @@ public class SkillController : BoxClickerElement
         //money
         SkillData skill = app.model.skillModel.GetSkillDataById(cellId);
 
-        if (GameManager.use.GetCoins() < skill.price) return;
-
-        GameManager.use.RemoveCoins(skill.price);
-
         switch (cellId)
         {
             case 0:
+
+                // Click
+                if (GameManager.use.GetCoins() < skill.price) return;
+                GameManager.use.RemoveCoins(skill.price);
+
                 int currenClickDamage = app.model.clickModel.GetClickDamage();
                 app.model.clickModel.UpgradeClickDamage(currenClickDamage);
                 app.view.boxView.UpdateClickDamage();
@@ -77,8 +93,13 @@ public class SkillController : BoxClickerElement
 
                 break;
             case 1:
-                // Upgrade Box
+
+                //Box
+                if (!app.model.boxModel.IsUpgradable(1)) return;
                 app.model.boxModel.UpgradeBox(1);
+
+                if (GameManager.use.GetCoins() < skill.price) return;
+                GameManager.use.RemoveCoins(skill.price);
 
                 // Reset Box
                 app.model.boxModel.ResetBox();
@@ -100,10 +121,37 @@ public class SkillController : BoxClickerElement
 
                 break;
             case 2:
-                print("Execute upgrade 2");
+
+                if (GameManager.use.GetCoins() < skill.price) return;
+                GameManager.use.RemoveCoins(skill.price);
+
+                // Extra Coins
+                app.model.extraCoinsModel.AddLevel(1);
+
+                // Update skill
+                app.model.skillModel.UpdateSkill(cellId);
+
+                // Redraw skills
+                app.view.skillListPanelView.Redraw();
+
+                break;
+            case 3:
+
+                if (GameManager.use.GetCoins() < skill.price) return;
+                GameManager.use.RemoveCoins(skill.price);
+
+                // Сritical damage
+                app.model.criticalDamageModel.AddLevel(1);
+
+                // Update skill
+                app.model.skillModel.UpdateSkill(cellId);
+
+                // Redraw skills
+                app.view.skillListPanelView.Redraw();
+
                 break;
             default:
-                print("Default");
+                //print("Default");
                 break;
         }
     }

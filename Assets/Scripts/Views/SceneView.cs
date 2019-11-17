@@ -13,6 +13,8 @@ public class SceneView : BoxClickerElement
     [SerializeField] private Sprite SettingsSoundOn;
     [SerializeField] private Sprite SettingsSoundOff;
 
+    [SerializeField] private List<GameObject> buttonLanguagesList = new List<GameObject>();
+
     public void Initialization()
     {
         SettingsMusicOn = Resources.Load<Sprite>("Sprites/SettingsMusic");
@@ -55,6 +57,27 @@ public class SceneView : BoxClickerElement
         {
             SoundButton.GetComponent<Image>().sprite = SettingsSoundOff;
         }
+    }
+
+    public void RedrawLanguages()
+    {
+        Dictionary<string, bool> languagesList = app.model.languageModel.GetLanguagesList();
+
+        foreach (GameObject button in buttonLanguagesList)
+        {
+            if (languagesList.ContainsKey(button.name))
+            {
+                if(languagesList[button.name] == true)
+                {
+                    button.transform.GetChild(2).GetComponent<Image>().enabled = true;
+                }
+                else
+                {
+                    button.transform.GetChild(2).GetComponent<Image>().enabled = false;
+                }
+            }
+        }
+
     }
 
 }

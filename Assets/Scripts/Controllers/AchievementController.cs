@@ -17,19 +17,25 @@ public class AchievementController : BoxClickerElement
         print(cell.name);
     }
 
-    public void OpenAchievement(int id)
+    public void AddLevel(int id, int level)
     {
         AchievementData currentAchievement = app.model.achievementModel.GetAchievementDataById(id);
 
-        if (!currentAchievement.isOpen)
+        if (currentAchievement.open) return;
+
+        currentAchievement.level += level;
+
+        if (currentAchievement.level >= currentAchievement.finalLevel)
         {
+            currentAchievement.open = true;
+
             GameManager.use.AddCoins(currentAchievement.coins);
             NotificationManager.use.ShowAchievement(id);
-        }
 
-        app.model.achievementModel.OpenAchievement(id);
-        app.view.achievementListPanelView.Redraw();
-        app.view.achievementListPanelView.UpdateAchievementCells();
-        SaveManager.use.SaveAchievements();
+            app.view.achievementListPanelView.Redraw();
+            app.view.achievementListPanelView.UpdateAchievementCells();
+           
+        }
+        //SaveManager.use.SaveAchievements();
     }
 }

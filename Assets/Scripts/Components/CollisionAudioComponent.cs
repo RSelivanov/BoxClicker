@@ -6,9 +6,8 @@ public class CollisionAudioComponent : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D coll)
     {
-        string[] sounds = { "Coin_10", "Coin_11", "Coin_12" } ;
+        string[] sounds = { "Coin_01", "Coin_02", "Coin_03" } ;
 
-        //SoundManager.use.Play(sounds[Random.Range(0, 1)], 0.3f);
-        SoundManager.use.PlaySound(sounds[Random.Range(0, 1)], 0.3f);
+        SoundManager.use.PlaySound(sounds[Random.Range(0, 1)]);
     }
 }

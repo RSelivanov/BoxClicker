@@ -6,7 +6,7 @@ public class GunDamageComponent : BoxClickerElement
     //Stages
     private bool block;
 
-    public float damage;
+    public double damage;
     private float coolDown;
     private float countDown;
     private float rayCoolDown;
@@ -39,8 +39,8 @@ public class GunDamageComponent : BoxClickerElement
         block = false;
     }
 
-    public void SetDamage(float damage){ this.damage = damage; }
-    public float GetDamage() { return this.damage; }
+    public void SetDamage(double damage){ this.damage = damage; }
+    public double GetDamage() { return this.damage; }
 
     public void SetCoolDown(float coolDown) { this.coolDown = coolDown; }
     public float GetCoolDown() { return this.coolDown; }
@@ -77,7 +77,7 @@ public class GunDamageComponent : BoxClickerElement
                 //ray_01.SetActive(true);
                 //ray_02.SetActive(true);
                 //SoundManager.use.Play("Laser_01", 1);
-                SoundManager.use.PlaySound("Laser_01", 1.0f);
+                SoundManager.use.PlaySound("ShotGun_01");
                 StartCoroutine(RayFlasher());
             }
         }

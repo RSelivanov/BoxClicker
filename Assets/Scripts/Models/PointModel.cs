@@ -23,7 +23,7 @@ public class PointModel : BoxClickerElement
         {
             foreach (Transform point in points.transform)
             {
-                pointList.Add(point.name, new PointData(0, "", "spriteName", 0, 0f, 0, 0, 0, 0, 0, 0, 50f, 15f));
+                pointList.Add(point.name, new PointData(0, "", "spriteName", 0, 0, 0, 0, 0, 0, 0, 0, 50f, 15f));
             }
         }
     }
